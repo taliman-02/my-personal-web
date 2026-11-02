@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudjarah S. Taliman | Personal Webpage</title>
+    <style>
+        /* ===== Reset ===== */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* ===== Page ===== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Corporate Gothic", "Times New Roman", Aptos, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #4169e1 0%, #87cefa 50%, #6495ed 100%);
+            background-attachment: fixed;
+            color: #2b2b2b;
+            line-height: 1.6;
+        }
+
+        /* ===== Header ===== */
+        header {
+            background: #87cefa;
+            color: #4b0082;
+            text-align: center;
+            padding: 48px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 2.2rem;
+            color: #4b0082;
+        }
+
+        header p {
+            margin: 0;
+            color: #4b0082;
+        }
+
+        /* ===== Navigation buttons ===== */
+        nav {
+            background: #6495ed;
+            text-align: center;
+            padding: 12px;
+            position: sticky;
+            top: 0;
+        }
+
+        nav a {
+            display: inline-block;
+            margin: 4px;
+            padding: 8px 18px;
+            background: #00008b;
+            color: #ffffff;
+            border: 2px solid #fde4f0;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+            font-weight: bold;
+            border-radius: 20px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        nav a:hover {
+            background: #4169e1;
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            background: #87cefa;
+        }
+
+        /* ===== Click effect: color radiates from the button ===== */
+        nav a,
+        form button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(135, 206, 235, 0.75);
+            transform: scale(0);
+            animation: ripple 0.6s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .pulse {
+            animation: glow 0.6s ease-out;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(135, 206, 235, 0.9);
+            }
+            100% {
+                box-shadow: 0 0 0 20px rgba(135, 206, 235, 0);
+            }
+        }
+
+        /* ===== Main content ===== */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px 20px;
+        }
+
+        section {
+            display: none;
+            background: #e6e6fa;
+            padding: 24px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(76, 29, 149, 0.2);
+        }
+
+        section.active {
+            display: block;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #4b0082;
+            border-bottom: 2px solid #4b0082;
+            padding-bottom: 6px;
+        }
+
+        h3 {
+            color: #4b0082;
+            margin-top: 28px;
+        }
+
+        /* ===== About section ===== */
+        .about-flex {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            text-align: center;
+        }
+
+        .about-flex img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #b8d6f5;
+            border: 3px solid #4b0082;
+        }
+
+        /* ===== Lists ===== */
+        ul {
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        /* ===== Tables ===== */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #87cefa;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #4b0082;
+            color: #ffffff;
+        }
+
+        tr:nth-child(even) td {
+            background: #fde4f0;
+        }
+
+        /* ===== Links ===== */
+        main a {
+            color: ##0000cd;
+        }
+
+        main a:hover {
+            color: #0000cd;
+        }
+
+        /* ===== Message form ===== */
+        form label {
+            display: block;
+            margin: 12px 0 4px;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #4b0082;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #87cefa;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            outline: none;
+            border-color: #7c3aed;
+            background: #87cefa;
+        }
+
+        form button {
+            margin-top: 16px;
+            padding: 10px 24px;
+            background: #4b0082;
+            color: #ffffff;
+            border: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #87cefa;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Hi, I'm Mudjarah S. Taliman</h1>
+        <p>A 1st year BSCS student at Wesleyan University-Philippines-Aurora</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#goals">Goals</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-flex">
+                <img src="pfp.jpg" alt="Photo of Jarah">
+                <p>
+                    I am from Puerto Princesa City, Palawan, and currently live in  			    Dipaculao, Aurora. I enjoy exploring the fascinating worlds of science 		    and arts, which fuel my curiosity and creativity. In my free time, I 		    love sketching, watching anime, reading, and getting plenty of sleep.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>My Skills and Interests</h2>
+            <ul>
+                <li>Sketching & Illustration</li>
+                <li>Creative Design</li>
+                <li>Critical Thinking</li>
+                <li>Adaptability</li>
+            </ul>
+        </section>
+
+        <section id="hobbies">
+            <h2>My Hobbies</h2>
+            <ul>
+                <li>Reading</li>
+                <li>Sketching</li>
+                <li>Exploring facts about Cosmos</li>
+            </ul>
+        </section>
+
+        <section id="goals">
+            <h2>My Goals</h2>
+            <table>
+                <tr>
+                    <th>GOALS</th>
+                    <th>Target Date</th>
+                </tr>
+                <tr>
+                    <td>Finish College</td>
+                    <td>2030</td>
+                </tr>
+                <tr>
+                    <td>Study Architecture</td>
+                    <td>7-10 years from now</td>
+                </tr>
+                <tr>
+                    <td>Be Rich</td>
+                    <td>SOON</td>
+                </tr>
+            </table>
+        </section>
+
+         <section id="schedule">
+            <h2>My Schedule</h2>
+            <p>College of Computer Studies_1st Semester A.Y. 2026-2027_1st Year Block 1</p>
+            <div style="overflow-x: auto;">
+            <table>
+                <tr>
+                    <th>Code</th>
+                    <th>Descriptive Title</th>
+                    <th>Units</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Prof./ Instructor</th>
+                    <th>Room</th>
+                </tr>
+                <tr>
+                    <td>CSCC1</td>
+                    <td>Introduction to Computing</td>
+                    <td>3</td>
+                    <td>MWF<br>TTh</td>
+                    <td>3:00 - 4:00 pm (Lec)<br>3:00 - 4:00 pm (Lab)</td>
+                    <td>Dr. M. Sumait</td>
+                    <td>BV 202<br>Comp Lab</td>
+                </tr>
+                <tr>
+                    <td>CE1</td>
+                    <td>Introduction to the Bible</td>
+                    <td>3</td>
+                    <td>MWF</td>
+                    <td>4:00 - 5:00 pm</td>
+                    <td>Ptr. J. Quematon</td>
+                    <td>BV 202</td>
+                </tr>
+                <tr>
+                    <td>GE01</td>
+                    <td>Purposive Communication</td>
+                    <td>3</td>
+                    <td>MWF</td>
+                    <td>5:00 - 6:00 pm</td>
+                    <td>Prof. R. Fernandez</td>
+                    <td>BV 202</td>
+                </tr>
+                <tr>
+                    <td>GE03</td>
+                    <td>Mathematics in the Modern World</td>
+                    <td>3</td>
+                    <td>MWF</td>
+                    <td>6:00 - 7:00 pm</td>
+                    <td>Engr. R. Lorenzo</td>
+                    <td>BV 202</td>
+                </tr>
+                <tr>
+                    <td>CSCC2</td>
+                    <td>Programming 1</td>
+                    <td>3</td>
+                    <td>MWF<br>WF</td>
+                    <td>7:00 - 8:00 pm (Lec)<br>8:00 - 9:00 pm (Lab)</td>
+                    <td>Sir J. Peña</td>
+                    <td>BV 202<br>Comp Lab</td>
+                </tr>
+                <tr>
+                    <td>NSTP1</td>
+                    <td>National Service Training Program 1</td>
+                    <td>3</td>
+                    <td>Tue</td>
+                    <td>7:00 am - 10:00 am</td>
+                    <td>Prof. M. Hugo</td>
+                    <td>Gym</td>
+                </tr>
+                <tr>
+                    <td>PE1</td>
+                    <td>Physical Fitness</td>
+                    <td>2</td>
+                    <td>Tue</td>
+                    <td>10:00 am - 12:00 nn</td>
+                    <td>Ma'am C. Namoro</td>
+                    <td>Gym</td>
+                </tr>
+                <tr>
+                    <td>GE02</td>
+                    <td>Readings in Philippine History</td>
+                    <td>3</td>
+                    <td>TTh</td>
+                    <td>4:30 - 6:00 pm</td>
+                    <td>Ma'am C. Elcano</td>
+                    <td>BV 202</td>
+                </tr>
+                <tr>
+                    <td>Fil1</td>
+                    <td>Filipino sa Ibat'-ibang Disiplina</td>
+                    <td>3</td>
+                    <td>TTh</td>
+                    <td>6:00 - 7:30 pm</td>
+                    <td>Sir S. Pelejo</td>
+                    <td>BV 202</td>
+                </tr>
+            </table>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:jahhtaliman@gmail.com">jahhtaliman@gmail.com</a></p>
+	    <p><a href="https://www.facebook.com/share/1efD5LhjAg/" target="_blank">My Facebook</a></p>
+            <h3>Send Me a Message</h3>
+            <form class="card" action="mailto:jahhtaliman@gmail.com" method="post" enctype="text/plain">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mudjarah S. Taliman. All rights reserved.</p>
+    </footer>
+
+    <script>
+        var navButtons = document.querySelectorAll("nav a");
+        var sections = document.querySelectorAll("main section");
+
+        function showSection(id) {
+            sections.forEach(function (s) {
+                s.classList.toggle("active", s.id === id);
+            });
+            navButtons.forEach(function (b) {
+                b.classList.toggle("active", b.getAttribute("href") === "#" + id);
+            });
+        }
+
+        navButtons.forEach(function (btn) {
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                radiate(btn, e);
+                showSection(btn.getAttribute("href").substring(1));
+            });
+        });
+
+        // Makes color radiate out from the spot that was clicked
+        function radiate(el, e) {
+            var rect = el.getBoundingClientRect();
+            var size = Math.max(rect.width, rect.height);
+            var ripple = document.createElement("span");
+            ripple.className = "ripple";
+            ripple.style.width = ripple.style.height = size + "px";
+            ripple.style.left = (e.clientX - rect.left - size / 2) + "px";
+            ripple.style.top = (e.clientY - rect.top - size / 2) + "px";
+            el.appendChild(ripple);
+            setTimeout(function () { ripple.remove(); }, 600);
+
+            el.classList.remove("pulse");
+            void el.offsetWidth;
+            el.classList.add("pulse");
+        }
+
+        // The Send Message button gets the same effect
+        document.querySelectorAll("form button").forEach(function (b) {
+            b.addEventListener("click", function (e) { radiate(b, e); });
+        });
+
+        // Show About when the page first opens
+        showSection("about");
+    </script>
+
+</body>
+</html>
